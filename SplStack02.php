@@ -1,6 +1,8 @@
 <?php
 // SplStack类通过使用一个双向链表来提供栈的主要功能
 $stack = new SplStack();
+
+// push操作向堆栈里面放入一个节点到top位置
 $stack->push('a');
 $stack->push('b');
 $stack->push('c');
@@ -24,9 +26,16 @@ $stack->next();
 echo 'Next code: '.$stack->current()."\r\n";
 
 // 遍历堆栈
+echo "\r\n";
 $stack->rewind();
 while($stack->valid()){
 	echo $stack->key().'=>'.$stack->current()."\r\n";
 	$stack->next();
 }
+echo "\r\n";
+
 // 删除堆栈数据
+// pop操作从堆栈里面提取出最后一个元素（top位置），同时在堆栈里面删除该节点
+$popObj = $stack->pop();
+echo 'Poped object: '.$popObj."\r\n";
+print_r($stack);
